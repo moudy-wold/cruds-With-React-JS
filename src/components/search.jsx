@@ -1,23 +1,25 @@
-import React,{useState,useEffect} from 'react'
+import React,{useContext,} from 'react'
 import "./searchStyle.css"
+import { ProductsContext } from './../App';
 
-function Search(props) {
+
+function Search() {
+    // Set ContextAPI Value
+    const props = useContext(ProductsContext)
     // create Fun to PreventDefault
     const sub =(e)=>{
         e.preventDefault()
     }
 return (
-    
     // Parent
     <div className="main">
-
         {/* Inputs */}
         <div className="inputs">
             <form onSubmit={sub}>
                 <input type="text" placeholder='Enter Product Name' onChange={(e)=>props.newItemName(e.target.value)}/>
                 <input type="number" placeholder='New Product`s Count' onChange={(e)=>props.newItemCount(e.target.value)}/>
                 <button type="reset" onClick={()=> props.addBtn()}>Add Product</button>
-                <input type="text" placeholder='SEARCH' onChange={(e)=>props.onSearch(e.target.value)}/>
+                <input type="text" placeholder='SEARCH' onChange={(e)=>props.handleSearch(e.target.value)}/>
             </form>
         </div>
 
@@ -33,17 +35,18 @@ return (
 
             {/*Products*/}
             <div className="content">
-                {props.props.map(item=>{
+                {props.medicine.map(item=>{
                     return <div className="row" key={item.id}>
                                 <span className="ele">{item.id}</span>
                                 <span className="ele">{item.name}</span>
                                 <span className="ele">{item.count}</span>
-                                <span className="ele"><button onClick={()=> props.onIncreasing(item)}>+</button></span>
-                                <span className="ele"><button onClick={()=> props.onDecreasing(item)}>-</button></span>
+                                <span className="ele"><button onClick={()=> props.handlIncreasing(item)}>+</button></span>
+                                <span className="ele"><button onClick={()=> props.handleDecreasing(item)}>-</button></span>
                             </div>
                 })}
             </div>
         </div>
+        
     </div>
 )
 }
