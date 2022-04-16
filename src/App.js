@@ -51,6 +51,7 @@ const addBtn =()=>{
   }
   // increasiing function
   const handlIncreasing =(item)=>{
+    console.log("item.id")
     const incArr = [...medicine];
     incArr[item.id-1].count++;
     setMedicine(incArr);
@@ -58,12 +59,23 @@ const addBtn =()=>{
 
   // // decreasing function
   const handleDecreasing= (item)=>{
+    console.log("item.id");
     if(item.count>0){
     const decArr = [...medicine];
     decArr[item.id-1].count--;
-    setMedicine(decArr);
+    setMedicine(decArr);  
+    
   }}
 
+// Delete fun
+const handlDelete = (item)=>{
+  
+  const remoArr = medicine.filter(it=>{
+    return item.id != it.id
+  })
+  setMedicine(remoArr);
+  console.log(remoArr)
+}
   // ser Provider Value
   const providerValue ={
     medicine,
@@ -73,8 +85,9 @@ const addBtn =()=>{
     handleSearch,
     handlIncreasing,
     handleDecreasing,
+    handlDelete,
   }
-  
+
   return (
     <ProductsContext.Provider value={providerValue}>
     <div className="App">
