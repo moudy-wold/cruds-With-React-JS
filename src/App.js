@@ -1,6 +1,7 @@
-import React ,{useState,useEffect} from "react"
+import React ,{useState,createContext} from "react"
 import './App.css';
 import Search from './components/search';
+export const ProductsContext = createContext();
 function App() {
   const [medicine,setMedicine] = useState([
     {name:"Suspension",id:1 ,count:7},
@@ -17,16 +18,17 @@ function App() {
   const [alternative,setِlternative] = useState([...medicine]);
   const [newProductName,setNewProductName] =useState('');
   const [newProductCount,setNewProductCount] = useState(1);
-  
+ 
   // Add Item Function
 const newItemName =(e)=>{
   setNewProductName(e);
-  
 }
+
 // add New Item Count
 const newItemCount=(e)=>{
 setNewProductCount(e)
 }
+
 // Add New Item Btn
 const addBtn =()=>{
   if(newProductName !== ''){
@@ -53,25 +55,32 @@ const addBtn =()=>{
     incArr[item.id-1].count++;
     setMedicine(incArr);
   }
+
   // // decreasing function
   const handleDecreasing= (item)=>{
     if(item.count>0){
     const decArr = [...medicine];
     decArr[item.id-1].count--;
     setMedicine(decArr);
-  } 
+  }}
+
+  // ser Provider Value
+  const providerValue ={
+    medicine,
+    newItemName,
+    newItemCount,
+    addBtn,
+    handleSearch,
+    handlIncreasing,
+    handleDecreasing,
   }
+  
   return (
+    <ProductsContext.Provider value={providerValue}>
     <div className="App">
-         <Search
-         props={medicine}
-         onSearch={handleSearch} 
-         newItemName={newItemName}
-         newItemCount={newItemCount}
-         addBtn={addBtn}
-         onIncreasing={handlIncreasing} 
-         onDecreasing={handleDecreasing}/>
+         <Search/>
     </div>
+    </ProductsContext.Provider>
   );
 }
 
