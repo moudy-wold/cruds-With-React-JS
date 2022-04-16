@@ -37,13 +37,16 @@ return (
             <div className="content">
                 {props.medicine.map(item=>{
                     return <div className="row" key={item.id}>
-                                <span className="ele">{item.id}</span>
+                                <span className="ele">{props.medicine.indexOf(item)+1}</span>
                                 <span className="ele">{item.name}</span>
                                 <span className="ele">{item.count}</span>
                                 <span className="ele"><button onClick={()=> props.handlIncreasing(item)}>+</button></span>
                                 <span className="ele"><button onClick={()=> props.handleDecreasing(item)}>-</button></span>
+                                <span className="ele remove"><button onClick={()=> props.handlDelete(item)}><i className="fa-solid fa-trash"></i></button></span>
                             </div>
+                            
                 })}
+                
             </div>
         </div>
         
