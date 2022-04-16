@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    padding: 20px;
+    width: 600px;
+    margin: auto;
+}
+
+form {
+    padding: 0;
+}
+
+.inputs {
+    width: 100%;
+    margin: 50px auto 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input {
+    width: 37.14%;
+    margin: 5px;
+    padding: 5px 8px;
+    border-radius: 13px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}
+
+.inputs input:last-child {
+    width: 99.6%;
+    margin-top: 14px;
+}
+
+.inputs button {
+    padding: 7px 10px;
+    margin-left: 5px;
+    margin-right: 0px;
+    color: #fff;
+    background-color: cadetblue;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.table {
+    width: 100%;
+}
+
+.table .navbar,
+.table .content .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table .navbar .ele,
+.table .content .row .ele {
+    width: 20%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.content button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:active {
+    transform: translateY(2px);
+}
