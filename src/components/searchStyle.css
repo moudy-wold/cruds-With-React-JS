@@ -80,7 +80,7 @@ input {
 
 .table .content .row .ele:last-child {
     position: absolute;
-    right: -60px;
+    right: -43px;
     top: 30%;
     transform: translateY(-50%);
 }
