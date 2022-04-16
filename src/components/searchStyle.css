@@ -56,6 +56,7 @@ input {
 .table .content .row {
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .table .navbar .ele,
@@ -77,6 +78,25 @@ input {
     transition: .2s;
 }
 
-button:active {
+.table .content .row .ele:last-child {
+    position: absolute;
+    right: -100px;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.content .remove button {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.content .remove i {
+    color: rgb(213, 52, 12);
+}
+
+button:active,
+.content .remove i:active {
     transform: translateY(2px);
 }
