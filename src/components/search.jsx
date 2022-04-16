@@ -17,7 +17,7 @@ return (
         <div className="inputs">
             <form onSubmit={sub}>
                 <input type="text" placeholder='Enter Product Name' onChange={(e)=>props.newItemName(e.target.value)}/>
-                <input type="number" placeholder='New Product`s Count' onChange={(e)=>props.newItemCount(e.target.value)}/>
+                <input type="number" placeholder='Product`s Count' onChange={(e)=>props.newItemCount(e.target.value)}/>
                 <button type="reset" onClick={()=> props.addBtn()}>Add Product</button>
                 <input type="text" placeholder='SEARCH' onChange={(e)=>props.handleSearch(e.target.value)}/>
             </form>
